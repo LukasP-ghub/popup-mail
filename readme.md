@@ -1,6 +1,6 @@
 # popup-mail
 
-Popup component taking email and user name. Sending HTML email for passed email address and showing thanks page with passed user name.
+Popup component taking email and user name. Sending HTML email for passed email address and showing thanks page with passed user name. 
  
 ## Stack
 - HTML
@@ -16,7 +16,7 @@ https://popup-mail.netlify.app
 Clone repository:
 
 ```sh
-npm install
+git clone https://github.com/LukasP-ghub/popup-mail.git
 ```
 
 Install dependencies:
