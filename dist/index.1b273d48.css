@@ -26,12 +26,15 @@ input[type=checkbox] {
   width: 100%;
   min-width: 280px;
   max-width: 600px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   row-gap: 2em;
+
   padding: 0 1em;
+  font-size: 20px;
   font-family: 'Open Sans', sans-serif;
   color: var(--dark);
   background-color: var(--dirty-blue);
@@ -52,7 +55,7 @@ input[type=checkbox] {
 }
 
 .popup-title--margin-bottom-big{
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
 }
 
 .popup__text{
@@ -168,7 +171,7 @@ input[type=checkbox] {
 .popup__term-text{
   grid-column: 2/3;
   grid-row:1/2;
-  font-size: .55rem;
+  font-size: .55em;
   padding-left: .5em;
 }
 
@@ -181,4 +184,4 @@ input[type=checkbox] {
   color: var(--white);
   background:var(--dark-green);
 }
-/*# sourceMappingURL=index.fa833fc3.css.map */
+/*# sourceMappingURL=index.1b273d48.css.map */

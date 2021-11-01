@@ -140,12 +140,12 @@
       this[globalName] = mainExports;
     }
   }
-})({"3fbYe":[function(require,module,exports) {
+})({"cSv3F":[function(require,module,exports) {
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "4a236f9275d0a351";
-module.bundle.HMR_BUNDLE_ID = "e613fa438a4a2fd1";
+module.bundle.HMR_BUNDLE_ID = "21352e468b7fb9b3";
 "use strict";
 function _createForOfIteratorHelper(o, allowArrayLike) {
     var it;
@@ -458,8 +458,330 @@ function hmrAcceptRun(bundle, id) {
     acceptedAssets[id] = true;
 }
 
-},{}],"3oU4t":[function(require,module,exports) {
+},{}],"3auaO":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _emailjsCom = require("emailjs-com");
+var _emailjsComDefault = parcelHelpers.interopDefault(_emailjsCom);
+class App {
+    constructor(){
+        this.emailInput = document.querySelector('.js-email');
+        this.nameInput = document.querySelector('#name');
+        this.sendBtn = document.querySelector('.js-send-btn');
+        this.htmlContent = `<!DOCTYPE html>
+<html lang="en" xmlns="https://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
-},{}]},["3fbYe","3oU4t"], "3oU4t", "parcelRequiree714")
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="x-apple-disable-message-reformatting">
+    <title></title>
+    <!--[if mso]>
+    <style>
+        table {border-collapse:collapse;border-spacing:0;border:none;margin:0;}
+        div, td {padding:0;}
+        div {margin:0 !important;}
+    </style>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
+    <style type="text/css">
+    </style>
+  </head>
 
-//# sourceMappingURL=mail.8a4a2fd1.js.map
+  <body style="margin:0 auto;padding:0;word-spacing:normal;height:100%; max-width: 600px;">
+    <table role="presentation"
+      style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width:100%; box-sizing: border-box; height:100%;"
+      width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="100%" height="100%" style="text-align: center;">
+          <table role="presentation"
+            style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%"
+            height="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td style="width:100%;height:40vh;background-size: cover;" width="100%"
+                background="https://www.panstwa.com/zabytki-zdj/luwr.webp">
+              </td>
+            </tr>
+            <tr>
+              <td align="center" width="100%" style="padding: 0 5%;">
+                <header style="text-align: center;">
+                  <h1 style="font-weight: 300;">Lorem ipsum</h1>
+                  <p style="margin: 0; font-size: 18px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum
+                    totam, at non
+                    adipisci
+                    repudiandae accusamus quos nulla praesentium, illo ratione architecto nam, minima distinctio enim
+                    iusto saepe sit eius nostrum!</p>
+                </header>
+              </td>
+            </tr>
+            <tr>
+              <td width="100%" style="width: 100%; font-size: 14px; padding:5vh 0;">
+                <div style="display: inline-block; width: 30%;">
+                  <p>a</p>
+                  <p>1111111111</p>
+                </div>
+                <div style="display: inline-block; width: 30%;">
+                  <p>s</p>
+                  <p>email@email.com</p>
+                </div>
+                <div style="display: inline-block; width: 30%;">
+                  <p>c</p>
+                  <p>test@test:com</p>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding: 0 5%; font-size: 13px;">Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Harum
+                repellendus ratione
+                provident illo
+                voluptates quisquam vitae, culpa quidem ex animi adipisci blanditiis soluta illum labore eius
+                distinctio voluptatem vero suscipit.</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+</html>`;
+    }
+    getInputValue = (input)=>{
+        return input.value;
+    };
+    validateInputData = (data, pattern)=>{
+        const ptrn = pattern ? new RegExp(pattern) : '';
+        if (!data) return false;
+        if (pattern) return ptrn.test(data);
+        return true;
+    };
+    sendRequest = async ({ email_to , html_content  })=>{
+        try {
+            await _emailjsComDefault.default.send("service_z9v00sh", "template_id9dp2d", {
+                html_content,
+                email_to,
+                reply_to: "xyz@xyz.pl",
+                from_name: "LukasP"
+            }, "user_5qaFnip6BB2GEzlG4R41n");
+        } catch (err) {
+            console.log(err);
+        }
+    };
+    handleSendBtn = async ()=>{
+        const email = this.getInputValue(this.emailInput);
+        const name = this.getInputValue(this.nameInput);
+        const isEmailValid = this.validateInputData(email, '.+\@.+\..+');
+        const isNameValid = this.validateInputData(name);
+        if (!isEmailValid) {
+            this.emailInput.classList.add('input-invalid');
+            return;
+        }
+        if (!isNameValid) {
+            this.nameInput.classList.add('input-invalid');
+            return;
+        }
+        await this.sendRequest({
+            email_to: email,
+            html_content: this.htmlContent
+        });
+        sessionStorage.setItem('UserName', name);
+        window.location.replace('pages/thank-you-page.html');
+    };
+    handleLabelVisibility = (e)=>{
+        const content = e.currentTarget.value;
+        e.currentTarget.nextElementSibling.classList.add('hide-label');
+        if (!content) e.currentTarget.nextElementSibling.classList.remove('hide-label');
+    };
+    bindListeners = ()=>{
+        this.sendBtn.addEventListener('click', ()=>this.handleSendBtn()
+        );
+        this.nameInput.addEventListener('change', (e)=>this.handleLabelVisibility(e)
+        );
+        this.emailInput.addEventListener('change', (e)=>this.handleLabelVisibility(e)
+        );
+    };
+    init = ()=>{
+        this.bindListeners();
+    };
+}
+const app = new App();
+app.init();
+
+},{"emailjs-com":"h6g4H","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"h6g4H":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "init", ()=>_init.init
+);
+parcelHelpers.export(exports, "send", ()=>_send.send
+);
+parcelHelpers.export(exports, "sendForm", ()=>_sendForm.sendForm
+);
+var _init = require("./methods/init/init");
+var _send = require("./methods/send/send");
+var _sendForm = require("./methods/sendForm/sendForm");
+exports.default = {
+    init: _init.init,
+    send: _send.send,
+    sendForm: _sendForm.sendForm
+};
+
+},{"./methods/init/init":"elgPv","./methods/send/send":"2Vu5E","./methods/sendForm/sendForm":"6hrNP","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"elgPv":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "init", ()=>init
+);
+var _store = require("../../store/store");
+const init = (userID, origin = 'https://api.emailjs.com')=>{
+    _store.store._userID = userID;
+    _store.store._origin = origin;
+};
+
+},{"../../store/store":"fY2pH","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fY2pH":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "store", ()=>store
+);
+const store = {
+    _origin: 'https://api.emailjs.com'
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"ciiiV":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, '__esModule', {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === 'default' || key === '__esModule' || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"2Vu5E":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "send", ()=>send
+);
+var _store = require("../../store/store");
+var _validateParams = require("../../utils/validateParams");
+var _sendPost = require("../../api/sendPost");
+const send = (serviceID, templateID, templatePrams, userID)=>{
+    const uID = userID || _store.store._userID;
+    _validateParams.validateParams(uID, serviceID, templateID);
+    const params = {
+        lib_version: '3.2.0',
+        user_id: uID,
+        service_id: serviceID,
+        template_id: templateID,
+        template_params: templatePrams
+    };
+    return _sendPost.sendPost('/api/v1.0/email/send', JSON.stringify(params), {
+        'Content-type': 'application/json'
+    });
+};
+
+},{"../../store/store":"fY2pH","../../utils/validateParams":"cblD2","../../api/sendPost":"7Of1v","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"cblD2":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "validateParams", ()=>validateParams
+);
+const validateParams = (userID, serviceID, templateID)=>{
+    if (!userID) throw 'The user ID is required. Visit https://dashboard.emailjs.com/admin/integration';
+    if (!serviceID) throw 'The service ID is required. Visit https://dashboard.emailjs.com/admin';
+    if (!templateID) throw 'The template ID is required. Visit https://dashboard.emailjs.com/admin/templates';
+    return true;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7Of1v":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "sendPost", ()=>sendPost
+);
+var _emailJSResponseStatus = require("../models/EmailJSResponseStatus");
+var _store = require("../store/store");
+const sendPost = (url, data, headers = {
+})=>{
+    return new Promise((resolve, reject)=>{
+        const xhr = new XMLHttpRequest();
+        xhr.addEventListener('load', ({ target  })=>{
+            const responseStatus = new _emailJSResponseStatus.EmailJSResponseStatus(target);
+            if (responseStatus.status === 200 || responseStatus.text === 'OK') resolve(responseStatus);
+            else reject(responseStatus);
+        });
+        xhr.addEventListener('error', ({ target  })=>{
+            reject(new _emailJSResponseStatus.EmailJSResponseStatus(target));
+        });
+        xhr.open('POST', _store.store._origin + url, true);
+        Object.keys(headers).forEach((key)=>{
+            xhr.setRequestHeader(key, headers[key]);
+        });
+        xhr.send(data);
+    });
+};
+
+},{"../models/EmailJSResponseStatus":"jXIfG","../store/store":"fY2pH","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jXIfG":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "EmailJSResponseStatus", ()=>EmailJSResponseStatus
+);
+class EmailJSResponseStatus {
+    constructor(httpResponse){
+        this.status = httpResponse.status;
+        this.text = httpResponse.responseText;
+    }
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6hrNP":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "sendForm", ()=>sendForm
+);
+var _store = require("../../store/store");
+var _validateParams = require("../../utils/validateParams");
+var _sendPost = require("../../api/sendPost");
+const findHTMLForm = (form)=>{
+    let currentForm;
+    if (typeof form === 'string') currentForm = document.querySelector(form);
+    else currentForm = form;
+    if (!currentForm || currentForm.nodeName !== 'FORM') throw 'The 3rd parameter is expected to be the HTML form element or the style selector of form';
+    return currentForm;
+};
+const sendForm = (serviceID, templateID, form, userID)=>{
+    const uID = userID || _store.store._userID;
+    const currentForm = findHTMLForm(form);
+    _validateParams.validateParams(uID, serviceID, templateID);
+    const formData = new FormData(currentForm);
+    formData.append('lib_version', '3.2.0');
+    formData.append('service_id', serviceID);
+    formData.append('template_id', templateID);
+    formData.append('user_id', uID);
+    return _sendPost.sendPost('/api/v1.0/email/send-form', formData);
+};
+
+},{"../../store/store":"fY2pH","../../utils/validateParams":"cblD2","../../api/sendPost":"7Of1v","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}]},["cSv3F","3auaO"], "3auaO", "parcelRequiree714")
+
+//# sourceMappingURL=index.8b7fb9b3.js.map

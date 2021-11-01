@@ -5,9 +5,6 @@ class App {
     this.emailInput = document.querySelector('.js-email');
     this.nameInput = document.querySelector('#name');
     this.sendBtn = document.querySelector('.js-send-btn');
-    this.emailLabel = document.querySelector('.js-email-label');
-    this.nameLabel = document.querySelector('.js-user-name-label');
-    this.form = document.querySelector('#js-form');
     this.htmlContent = `<!DOCTYPE html>
 <html lang="en" xmlns="https://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
@@ -105,16 +102,20 @@ class App {
     return true;
   }
 
-  sendRequest = ({ email_to, html_content }) => {
-    emailjs.send(process.env.EMAILJS_SERVICE_ID, process.env.EMAILJS_TEMPLATE_ID, {
-      html_content,
-      email_to,
-      reply_to: "xyz@xyz.pl",
-      from_name: "LukasP",
-    }, process.env.EMAILJS_USER_ID);
+  sendRequest = async ({ email_to, html_content }) => {
+    try {
+      await emailjs.send(process.env.EMAILJS_SERVICE_ID, process.env.EMAILJS_TEMPLATE_ID, {
+        html_content,
+        email_to,
+        reply_to: "xyz@xyz.pl",
+        from_name: "LukasP",
+      }, process.env.EMAILJS_USER_ID);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
-  handleSendBtn = () => {
+  handleSendBtn = async () => {
     const email = this.getInputValue(this.emailInput);
     const name = this.getInputValue(this.nameInput);
     const isEmailValid = this.validateInputData(email, '.+\@.+\..+');
@@ -127,7 +128,7 @@ class App {
       this.nameInput.classList.add('input-invalid');
       return;
     }
-    this.sendRequest({ email_to: email, html_content: this.htmlContent });
+    await this.sendRequest({ email_to: email, html_content: this.htmlContent });
     sessionStorage.setItem('UserName', name);
     window.location.replace('pages/thank-you-page.html');
   }
