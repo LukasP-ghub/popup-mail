@@ -9,11 +9,17 @@ Popup component taking email and user name. Sending HTML email for passed email 
 - Parcel
 
 ## Live
-
+https://popup-mail.netlify.app
 
 ## Building and running on localhost
 
-First install dependencies:
+Clone repository:
+
+```sh
+npm install
+```
+
+Install dependencies:
 
 ```sh
 npm install

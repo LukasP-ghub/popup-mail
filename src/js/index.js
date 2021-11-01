@@ -115,7 +115,8 @@ class App {
     }
   }
 
-  handleSendBtn = async () => {
+  handleSendBtn = async (e) => {
+    e.preventDefault();
     const email = this.getInputValue(this.emailInput);
     const name = this.getInputValue(this.nameInput);
     const isEmailValid = this.validateInputData(email, '.+\@.+\..+');
@@ -130,7 +131,8 @@ class App {
     }
     await this.sendRequest({ email_to: email, html_content: this.htmlContent });
     sessionStorage.setItem('UserName', name);
-    window.location.replace('pages/thank-you-page.html');
+    window.location = '/src/pages/thank-you-page.html';
+    return false;
   }
 
   handleLabelVisibility = (e) => {
@@ -140,7 +142,7 @@ class App {
   }
 
   bindListeners = () => {
-    this.sendBtn.addEventListener('click', () => this.handleSendBtn());
+    this.sendBtn.addEventListener('click', (e) => this.handleSendBtn(e));
     this.nameInput.addEventListener('change', (e) => this.handleLabelVisibility(e));
     this.emailInput.addEventListener('change', (e) => this.handleLabelVisibility(e));
   }
