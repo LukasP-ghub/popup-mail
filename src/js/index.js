@@ -131,7 +131,7 @@ class App {
     }
     await this.sendRequest({ email_to: email, html_content: this.htmlContent });
     sessionStorage.setItem('UserName', name);
-    window.location = '/pages/thank-you-page.html';
+    window.location = 'thank-you-page.html';
     return false;
   }
 
