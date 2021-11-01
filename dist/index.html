@@ -1,1 +1,47 @@
-<!DOCTYPE html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Popup, mail - zadanie rekrutacyjne</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet"><link href="/index.2794f2b6.css" rel="stylesheet"></head><body> <article class="popup"> <div class="popup__message"> <h2 class="popup__title">Witaj!</h2> <p class="popup__text">Wypełnij formularz i zgarnij <a href="">Kupon rabatowy</a> do wykorzystania przy najbliższych zakupach</p> </div> <form action="thank-you-page.html" class="popup__form" id="js-form"> <div class="popup__user-data"> <input type="text" name="email" id="email" class="js-email popup__mail" required> <label for="email" class="js-email-label popup__mail-label">email</label> <input type="text" name="name" id="name" class="popup__user-name" required> <label for="name" class="js-user-name-label popup__user-name-label">imię</label> </div> <div class="popup__agreements-and-terms"> <label class="popup__checkbox-wrapper"> <p class="popup__term-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit fugiat minima ullam voluptatem, magni alias culpa sed maxime accusamus libero fugit aperiam suscipit nemo maiores porro dignissimos molestias debitis. Tenetur. </p> <input type="checkbox" name="term" id="term"> <span class="popup__term"></span> </label> </div> <input type="button" value="wyślij" class="js-send-btn popup__send-btn"> </form> </article> <script src="/index.77932438.js" type="module"></script> </body></html>
+<!DOCTYPE html>
+<html lang="pl">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup, mail - zadanie rekrutacyjne</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="/index.1b273d48.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <article class="popup">
+      <div class="popup__message">
+        <h2 class="popup__title">Witaj!</h2>
+        <p class="popup__text">Wypełnij formularz i zgarnij <a href="">Kupon rabatowy</a> do wykorzystania przy
+          najbliższych zakupach</p>
+      </div>
+
+      <form action="thank-you-page.html" class="popup__form" id="js-form">
+        <div class="popup__user-data">
+          <input type="text" name="email" id="email" class="popup__mail js-email" required="">
+          <label for="email" class="popup__mail-label js-email-label">email</label>
+          <input type="text" name="name" id="name" class="popup__user-name" required="">
+          <label for="name" class="popup__user-name-label js-user-name-label">imię</label>
+        </div>
+        <div class="popup__agreements-and-terms">
+          <label class="popup__checkbox-wrapper">
+            <p class="popup__term-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Odit fugiat minima ullam voluptatem, magni alias culpa sed maxime accusamus libero fugit aperiam suscipit
+              nemo
+              maiores porro dignissimos molestias debitis. Tenetur.
+            </p>
+            <input type="checkbox" name="term" id="term">
+            <span class="popup__term"></span>
+          </label>
+        </div>
+        <input type="button" value="wyślij" class="popup__send-btn js-send-btn">
+      </form>
+    </article>
+    <script src="/index.8b7fb9b3.js" defer=""></script>
+  </body>
+
+</html>

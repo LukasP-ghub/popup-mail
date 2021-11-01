@@ -3,3 +3,4 @@ node_modules/
 .env
 dist/*
 !dist/index.html
+!dist/thank-you-page.html
