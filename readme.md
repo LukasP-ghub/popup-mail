@@ -25,7 +25,7 @@ Install dependencies:
 npm install
 ```
 
-To run in hot module reloading mode:
+To run in development mode
 
 ```sh
 npm start
